@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine Sayang ❤️</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        text-align: center;
+        background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+        color: white;
+        overflow-x: hidden;
+    }
+
+    h1 {
+        margin-top: 50px;
+        font-size: 3em;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+        font-size: 1.2em;
+        margin: 20px;
+        animation: fadeIn 3s ease-in-out;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    img {
+        width: 250px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        margin-top: 20px;
+        animation: fadeIn 4s ease-in-out;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 1em;
+        border: none;
+        border-radius: 25px;
+        background-color: white;
+        color: #ff4b6e;
+        cursor: pointer;
+        margin-top: 25px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #ff4b6e;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    .heart {
+        position: fixed;
+        color: red;
+        animation: float 5s linear forwards;
+        pointer-events: none;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(100vh); opacity: 1; }
+        100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine Sayang ❤️</h1>
+
+<p>
+Untuk sayang yang selalu bikin hari-hariku lebih indah 💕<br>
+Terima kasih sudah hadir dalam hidupku.<br>
+Walaupun aku banyak kurang, makasih ya sudah mau nerima aku.<br>
+Aku minta maaf kalau selama ini aku banyak salah dan belum bisa jadi yang terbaik buat sayang.<br>
+Semoga masalah yang sayang lewati cepat selesai yaa, aku tahu sayang pasti bisa 💪❤️<br><br>
+Aku sayang kamu hari ini, besok, dan selamanya.
+</p>
+
+<img id="slide" src="1.jpeg" alt="Foto Kita">
+
+<br>
+
+<button onclick="showLove()">
+Klik kalau kamu sayang aku 😘
+</button>
+
+<audio id="bgMusic" autoplay loop preload="auto">
+    <source src="HAECHAN_-_First_Love_Utada_Hikaru_(mp3.pm).mp3" type="audio/mp3">
+</audio>
+
+<script>
+    // ====== SLIDESHOW FOTO ======
+    const images = ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.jpeg", "8.jpeg", "9.jpeg", "10.jpeg", "11.jpeg"];
+    let index = 0;
+    const slide = document.getElementById("slide");
+
+    function changeImage() {
+        index = (index + 1) % images.length;
+        slide.style.opacity = 0;
+
+        setTimeout(() => {
+            slide.src = images[index];
+            slide.style.opacity = 1;
+        }, 500);
+    }
+
+    setInterval(changeImage, 3000);
+
+    // ====== ANIMASI HATI ======
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 15 + 20 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 500);
+
+    // ====== BUTTON ALERT ======
+    function showLove() {
+        alert("Aku cinta sayang selamanya ❤️");
+    }
+
+    // ====== VOLUME MUSIK LEBIH HALUS ======
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.4;
+</script>
+
+</body>
+</html>
